@@ -1,0 +1,18 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if error %}
+        <br>{{ error }}<br>
+    {% endif %}
+    <button type="submit">{{ submit }}</button>
+</form>
+{% if uploaded_url %}
+
+    <p>File has been successfully uploaded at <a href="{{ uploaded_url }}">{{ uploaded_url }}</a></p>
+
+{% endif %}
+
+
+   <p>{{ df|safe }}</p>
+
